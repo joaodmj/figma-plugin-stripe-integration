@@ -1,4 +1,4 @@
-![Themer promo image](img/Figma-Plugin-Stripe-Integration.png.png?raw=true "Themer promo")
+![Figma Plugin - Stripe Integration image](img/Figma-Plugin-Stripe-Integration.png?raw=true "Figma Plugin - Stripe Integration image")
 
 # Figma Plugin - Stripe Integration
 Very simple boiler plate to start receiving payments directly on your Figma Plugin using Stripe.
@@ -8,12 +8,15 @@ This project is super simple. It's a Stripe Element input that allows you to rec
 
 Stripe instructions can be found here: [https://stripe.com/docs/js/initializing](https://stripe.com/docs/js/initializing)
 
-After cloning, run:
+
+After cloning this project, run:
+
 ```
 npm install
 ```
 
 For Webpack to watch for changes while you edit your code, do:
+
 ```
 npx webpack --mode=development --watch
 ```
