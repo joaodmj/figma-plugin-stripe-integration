@@ -24,9 +24,41 @@ h2 {
 
 #card-element {
     padding: 6px 10px;
+    min-height: 33px;
     border: 1px solid var(--black1);
     border-radius: 6px;
+    transition: all 300ms ease-in-out;
 }
+
+#card-errors {
+    color: var(--red);
+}
+
+.success {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    background: linear-gradient(222deg, #5d23ff, #3957ff)!important;
+    padding: 40px 0!important;
+    border-radius: 4px!important;
+}
+.success:after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml,%3Csvg fill="none" height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m21.2071 13.7071-6.2071 6.2071-3.7071-3.7071 1.4142-1.4142 2.2929 2.2929 4.7929-4.7929z" fill="%23FFF" fill-rule="evenodd"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hide {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+}
+
+
 
 /* Vars */
 :root {
