@@ -1,0 +1,10 @@
+{
+    "name": "figma-plugin-stripe-integration",
+    "id": "1045304232800807593",
+    "api": "1.0.0",
+    "main": "dist/code.js",
+    "ui": "dist/ui.html",
+    "editorType": [
+        "figma"
+    ]
+}
