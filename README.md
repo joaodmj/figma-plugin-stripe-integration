@@ -1,40 +1,25 @@
-Below are the steps to get your plugin running. You can also find instructions at:
+![Themer promo image](img/Figma-Plugin-Stripe-Integration.png.png?raw=true "Themer promo")
 
-  https://www.figma.com/plugin-docs/setup/
+# Figma Plugin - Stripe Integration
+Very simple boiler plate to start receiving payments directly on your Figma Plugin using Stripe.
 
-This plugin template uses Typescript and NPM, two standard tools in creating JavaScript applications.
+### How to use:
+This project is super simple. It's a Stripe Element input that allows you to receive payments directly on your Figma Plugin. Note that you need to implement the server side to have a fully integrated solution. 
 
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
+Stripe instructions can be found here: [https://stripe.com/docs/js/initializing](https://stripe.com/docs/js/initializing)
 
-  https://nodejs.org/en/download/
+After cloning, run:
+```
+npm install
+```
 
-Next, install TypeScript using the command:
+For Webpack to watch for changes while you edit your code, do:
+```
+npx webpack --mode=development --watch
+```
 
-  npm install -g typescript
+### Contact:
+If you have any questions, comments or just want to say hi, I'm available on [Twitter](https://twitter.com/joaodmj).
 
-Finally, in the directory of your plugin, get the latest type definitions for the plugin API by running:
-
-  npm install --save-dev @figma/plugin-typings
-
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
-
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
-
-For more information, visit https://www.typescriptlang.org/
-
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
-
-We recommend writing TypeScript code using Visual Studio code:
-
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-    then select "tsc: watch - tsconfig.json". You will have to do this again every time
-    you reopen Visual Studio Code.
-
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+### Remarks:
+• I'm the creator of Makers, a Figma Plugin to go from Figma to site with one click, fully responsive. If this sounds exciting give it a try at [makers.so](https://makers.so)
