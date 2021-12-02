@@ -1,33 +1,41 @@
+import {dispatch, handleEvent} from "./ui-handler-message";
 window.onload = function() {
-    window.addEventListener('message', (event) => {
-        // if(event.origin !== 'http://scriptandstyle.com') return;
-        console.log('received response:  ', event.data);
+	const iframe = document.createElement('iframe');
+    iframe.id = "makers-iframe";
+    iframe.src = "https://makers.test/plugin";
+    document.body.appendChild(iframe);
+	iframe.onload = () => postMessageToIFrame("xixoca", "From worker to .Vue");
+
+	window.addEventListener('message', (event) => {
+		const message = event.data.pluginMessage;
+		// Send data to TS or Vue:
+		if (message.action.includes("figma")) {
+			console.log('Worker received response from .TS:  ', message);
+			dispatch(message.action, message.data);
+		} else if (message.action.includes("vue")) {
+			console.log('Worker received response from .Vue:  ', message);
+			dispatch(message.action, message.data);
+		}
     });
 
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.id = "stripe-iframe";
-    iframe.src = "https://makers.test:3000/test/test.html";
-    // iframe.src = "https://blush.design/plugin?isPlugin=figma";
-    document.body.appendChild(iframe);
-    
-    iframe.onload = () => callFunction();
-
-    // window.onmessage = (event) => {
-    //     console.log("event on worker", event);
-    //     // if (event.origin !== "https://makers.test:3000") {
-    //     //     return;
-    //     // }
-
-    //     // console.log(JSON.parse(event.data.pluginMessage).intent);
-    // }
+	// Listen to events from code.ts
+	handleEvent("testing", (value) => console.log("value", value));
 };
 
-function callFunction() {
-    console.log("calling STRIPE");
-    const stripeFrame = document.getElementById('stripe-iframe');
-    stripeFrame.contentWindow.postMessage({action: 'getStripeData'}, "https://js.stripe.com");
+function postMessageToIFrame(action, data) {
+    const iframe = document.getElementById('makers-iframe');
+	iframe.contentWindow.postMessage({ pluginMessage: { action, data  } }, '*');
 }
+
+// function addStripeCard(stripe) {
+//     const elements = stripe.elements({
+//         fonts: [{cssSrc: "https://rsms.me/inter/inter.css"}],
+//         locale: 'auto'
+//     });
+//     const card = elements.create("card", {style: getStripeElementStyles()});
+//     card.mount("#card-element");
+//     return card;
+// }
 
 // import {loadStripe} from '@stripe/stripe-js';
 
@@ -64,15 +72,7 @@ function callFunction() {
 //     });
 // })
 
-// function addStripeCard(stripe) {
-//     const elements = stripe.elements({
-//         fonts: [{cssSrc: "https://rsms.me/inter/inter.css"}],
-//         locale: 'auto'
-//     });
-//     const card = elements.create("card", {style: getStripeElementStyles()});
-//     card.mount("#card-element");
-//     return card;
-// }
+
 
 // function getStripeElementStyles() {
 //     return {
